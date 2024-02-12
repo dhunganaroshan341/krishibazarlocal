@@ -1,0 +1,25 @@
+.agricultural-navbar {
+    background-color: #8FBC8F; /* Olive Drab - You can choose a color that suits your theme */
+    padding: 10px;
+}
+
+.agricultural-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.agricultural-navbar li {
+    display: inline;
+}
+
+.agricultural-navbar a {
+    text-decoration: none;
+    color: #FFF; /* White text for contrast */
+}
+
+.agricultural-navbar i {
+    margin-right: 5px;
+}

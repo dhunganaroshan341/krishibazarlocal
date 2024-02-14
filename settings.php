@@ -1,6 +1,6 @@
 <?php
 include_once __DIR__."/start_session.php";
-$title = "krishibazar";
+$title = "settings";
 
 ?>
  <?php
@@ -8,8 +8,10 @@ $title = "krishibazar";
 if(!isset($_SESSION['user_name'])) {
     // Include authentication file
     include_once __DIR__."/includes/authenticate.php";
+
 } else {
     // User is logged in, continue with other logic
+    
 }
 ?>
 
@@ -27,6 +29,10 @@ include_once __DIR__."/includes/header.php";?>
     <button type="submit" name="logout" id="toggleButton" onclick="" class="btn btn-danger mb-3" style="width: 10%;">logout</button>
   </div>
   </form>
+  <?php
+  $title = $user_name . "'s". "profile";
+    include_once __DIR__."/app/views/components/user_profile.php";
+  ?>
   <script src="pubilc/js/getUrlParameter.js"></script>
   <script>
     function confirmAction() {

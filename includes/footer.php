@@ -1,3 +1,8 @@
+<?php
+
+include_once __DIR__."/navbar.php";
+?>
+
 <footer class="bg-dark text-light py-5" id = "footer">
     <div class="container">
         <div class="row">

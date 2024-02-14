@@ -12,7 +12,8 @@ include_once __DIR__."/includes/header.php";?>
  $sidebarOptions = array(
     "sell" => "#sell",
     "sell_table" => "#sell_table",
-    "more" => "sell"
+    "home" => "index.php",
+    
 );
 ?>
 <style>

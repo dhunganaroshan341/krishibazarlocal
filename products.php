@@ -20,18 +20,27 @@ $sidebarOptions = array(
  ?>
  
 
- <section class="tophalf mt-4" style="position: sticky; top: 20%;">
- <h1 class="display-1"> Products page</h1>  
+ <section class="tophalf mb-4" style="position: sticky; top: 0%;">
+ 
+
+
  <?php
     include_once __DIR__."/includes/reusable_sidebar.php";
     
 
  ?> 
+ <div class="bar container text-center my-1 py-2 rounded shadow bg-white" style = "width:800px">
+   <style>
+      .bar{
+         opacity:30%;
+         width:90%:
+      }
+   </style>
+   </div>
 
  </section>
-<div class="mt-4"></div>
-<div class="mt-4"></div>
-<div class="mt-4"></div>
+
+
  <?php
  include_once __DIR__."/includes/products_display.php";
 //  

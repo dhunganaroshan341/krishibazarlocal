@@ -1,8 +1,9 @@
 <?php
 include_once __DIR__ ."/../../config/database.php";
+include_once __DIR__ ."/../../start_session.php";
 // Assume you have already established a connection to your database
 // $sold_id = $_GET['sold_id'];
-$sold_id = 5;
+$sold_id = $_SESSION['user_id'];
 $connection = $conn;
 // Query to fetch product information from the database
 $query = "SELECT * FROM product_sale WHERE sold_id = $sold_id";
@@ -46,7 +47,7 @@ if (mysqli_num_rows($result) > 0) {
                         <p class="card-text"> Address from: <?php echo $seller_address; ?></p>
                         <p class="card-text">To : <?php echo $buyer_address; ?></p>
                         <p class="card-text">Category: <?php echo $row['category']; ?></p>
-                        <button type="button" class="btn btn-danger">Cancel</button>
+                        <?php?>
                     </div>
                 </div>
             </div>

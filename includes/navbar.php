@@ -86,10 +86,23 @@ $icon = array(
             echo "<li><a href='$link' title='$text'><i class='fas $icon[$i]'></i> $text</a></li>"; 
             $i++;
         }
-        echo isset($_SESSION['user_name']) ? '<li>' . $_SESSION['user_name'] . '<i class="fas fa-user"></i></li>' : ''; 
-        ?>
+         echo isset($_SESSION['user_name']) ? '<li><a href="user_profile.php">' . $_SESSION['user_name'] . '<i class="fas fa-user"></i></a></li>' : ''; ?>
+
     </ul>
 </nav>
+<style>
+    .agricultural-navbar {
+    background: linear-gradient(45deg, #aaff00, #ffaa99);
+    border-radius: 4%;;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);    
+    /* Add more vendor-prefixed declarations for browser compatibility */
+}
+.nav-list li a{
+        color: #4b4e62;;
+    font-weight:  bold;
+    font-size: x-large;
+}
+</style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-0p/xfR8i4ZUVJQBCa3ukExxF7GymBxm8+Gg3BU1/cg99cPzhEHBbpTGoLlMz8BxK8pX2jCzGz9Vb3hGqBzEXZw==" crossorigin="anonymous"></script>
 

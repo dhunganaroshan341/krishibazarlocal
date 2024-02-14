@@ -1,5 +1,7 @@
-<div class="container sell" id="sell" style = " margin-top:5%;box-shadow :2px 2px 5px 2px black; border-radius: 2%; padding:5%;">
-  <h4 class = "text-center"> Sell products</h4>
+<div class="container sell" id="sell" style = " margin-top:5%;box-shadow :2px 2px 9px 2px black; border-radius: 2%; padding:5%;">
+  <h4 style  = "color:#f7d16e; background:green; padding:2%;"class = "text-center"> Sell products</h4>
+  
+  
   <form action="app/controllers/ProductController.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="name">Name:</label>
@@ -43,7 +45,6 @@
         <option value="farmer">Farmer</option>
       </select>
     </div>
-
     <div class="form-group" id="farmer_category_group" style="display:none;">
       <label for="category">farmer product Category:</label>
       <select class="form-control" id="category" name="category">
@@ -83,16 +84,19 @@
 </div>
 <div class="mt-4"></div>
 <style>
+  .form-group {
+    
+  }
   .form-group label{
     font-weight: bold;
     font-size: 1.2em;
   }
   .form-group{
-    box-shadow:  4px 4px 4px 4px rgba(1, 1, 0.3, 0.2);
+    box-shadow:  1px 1px 4px 1px rgba(1, 1, 0.1, 0.1);
   }
   .sell_it{
-    background:greenyellow;
-    color:white;
+    background:green;
+    color:#f7d16e ;
     padding:2%;
     font-weight: bold;
     font-size: 1.2em;

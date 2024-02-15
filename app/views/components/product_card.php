@@ -1,6 +1,6 @@
 <?php include_once __DIR__."/../../../start_session.php";
 $user_id = $_SESSION['user_id'];  ?>
-?>
+
 
 <style>
     .grid-container {

@@ -39,6 +39,6 @@ echo $row['email'];
 if(isset($_GET['buy_now'])) {
     $product_id = "SELECT  id FROM products WHERE name='".$_GET["product"]."'";
 }
-public function 
+
 
 

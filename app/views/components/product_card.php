@@ -1,3 +1,7 @@
+<?php include_once __DIR__."/../../../start_session.php";
+$user_id = $_SESSION['user_id'];  ?>
+?>
+
 <style>
     .grid-container {
     display: grid;
@@ -42,6 +46,7 @@ $product_images = [
 
 $category = $product['category'];
 $image_path = $product_images[$category];
+
 ?>
 
 </style>
@@ -106,6 +111,8 @@ $image_path = $product_images[$category];
 }
 
 </style>
+
+
 <div class="product-card product-card-custom">
 <div class="product-image-container">
     <img class="product-image img-fluid" src="public/images/products/<?php echo $image_path;?>" alt="Product Image">
@@ -125,13 +132,15 @@ $image_path = $product_images[$category];
         <div class="seller">Sold by: <a href="/krishibazar/app/views/components/user_profile.php"><?= $row['name']?></a></div>
         <div class="product-description"><?= $product['description'] ?></div>
         <div class="product-category">Category: <?= $product['category'] ?></div>
-        <div class="product-category">manufactured: <?= $product['placed'] ?></div>
+        <div class="product-category">manufactured: <?= $product['category'] ?></div>
     </div>
+    
     <div class="product-buttons">
     <button name="add_to_cart" class="btn add-to-cart" onclick="addToCart(<?php echo $product['id']; ?>)">Add to Cart</button>
-    <button name="buy_now" class="btn buy-now" onclick="buyNow(<?php echo $product['id']; ?>, <?php echo $product['seller_id']; ?>)">Buy Now</button>
+    <button name="buy_now" class="btn buy-now" onclick="buyNow(<?php echo $product['id']; ?> , <?php echo $user_id; ?>)">Buy Now</button>
 </div>
 </div>
+
 
 
 <script>
@@ -142,14 +151,15 @@ $image_path = $product_images[$category];
     //     window.location.href = url;
     // }
 
-    function buyNow(product_id,seller_id) {
+    function buyNow(product_id,sold_id) {
         if (confirm("Are you sure you want to buy?")) {
             alert('Thank you for your purchase!');
            
-        var url = 'app/controllers/buy_product.php?product_id=' + product_id + '&seller_id=' + seller_id+ '&sold_id=' + sold_id;
+        var url = 'app/controllers/buy_product.php?product_id=' + product_id + '&sold_id=' + sold_id;
         window.location.href = url;
         }
      
     }
 </script>
+<?php
 

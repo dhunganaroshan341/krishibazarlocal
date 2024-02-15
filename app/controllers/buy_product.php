@@ -1,6 +1,12 @@
 <?php
 include_once __DIR__."/../../config/database.php";
 
+// Check if product_id and sold_id are provided
+if (!isset($_GET['product_id'], $_GET['sold_id'])) {
+    echo "Product ID and Sold ID are required.";
+    exit();
+}
+
 // Sanitize inputs
 $product_id = mysqli_real_escape_string($conn, $_GET['product_id']);
 $sold_id = mysqli_real_escape_string($conn, $_GET['sold_id']);

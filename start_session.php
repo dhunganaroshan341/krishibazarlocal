@@ -10,6 +10,7 @@ if (session_status() === PHP_SESSION_NONE && basename($_SERVER['PHP_SELF']) !== 
     if(mysqli_num_rows($result)==1){
         $row = mysqli_fetch_assoc($result);
         $user_name = $row['name'];
+        $user_id = $row['id'];
         $user_image = $row['image'];
         $user_email = $row['email'];
         $user_password = $row['password'];

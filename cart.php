@@ -9,13 +9,11 @@ include_once __DIR__."/includes/header.php";?>
     "products" => "products.php",
     "sell" => "sell.php"
 );
-
+ 
 include_once __DIR__.'/includes/reusable_sidebar.php';
 
 include_once __DIR__.'/includes/buycart/product_detail_card.php'; ?>
-includ
 
-?>
 
 <?php
 include_once __DIR__.'/includes/footer.php'; ?>

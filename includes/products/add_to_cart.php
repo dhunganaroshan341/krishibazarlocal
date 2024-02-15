@@ -18,33 +18,9 @@
         grid-template-columns: 1fr; /* Switch to a single column on smaller screens */
     }
 }
-<?php
-$product_images = [
-    'dairy' => 'dairy.jpg',
-    'Dairy' => 'dairy.jpg',
-    'vegetables' => 'vegetables.jpg',
-    'Vegetables' => 'vegetables.jpg',
-    'meat' => 'meat.jpeg',
-    'Meat' => 'meat.jpeg',
-    ' खाद्य' =>'grains.jpg',
-    'सब्जी तथा फलफूल'=>'vegetables.jpg',
-    'fruits' => 'fruits.jpeg',
-    'fruit' => 'fruits.jpeg',
-    'grains' => 'grains.jpg',
-    'Grains' => 'grains.jpg',
-    
-    'other' => 'beverages.jpg',
-    'seeds' => '65ca5739732d5_79278360_132467441530653_1510391830221422592_n.jpg',
-    'fertilizer' => 'fertilizer.jpg',
-    'pesticide' => 'fertilizer.jpg',
-    // Add more categories as needed
-];
-
-$category = $product['category'];
-$image_path = $product_images[$category];
-?>
 
 </style>
+
 <style>
 
 .product-card-custom {
@@ -107,10 +83,9 @@ $image_path = $product_images[$category];
 
 </style>
 <div class="product-card product-card-custom">
-<div class="product-image-container">
-    <img class="product-image img-fluid" src="public/images/products/<?php echo $image_path;?>" alt="Product Image">
-</div>
-
+    <div class="product-image-container">
+        <img class="product-image img-fluid" src="<?= $product['image'] ?>" alt="Product Image">
+    </div>
     <div class="product-details">
         <div class="product-title"><?= $product['name'] ?></div>
         <div class="product-price" style="color:green"><?= 'रू ' . $product['price'] . '/unit' ?></div>
@@ -125,31 +100,34 @@ $image_path = $product_images[$category];
         <div class="seller">Sold by: <a href="/krishibazar/app/views/components/user_profile.php"><?= $row['name']?></a></div>
         <div class="product-description"><?= $product['description'] ?></div>
         <div class="product-category">Category: <?= $product['category'] ?></div>
-        <div class="product-category">manufactured: <?= $product['placed'] ?></div>
     </div>
     <div class="product-buttons">
-    <button name="add_to_cart" class="btn add-to-cart" onclick="addToCart(<?php echo $product['id']; ?>)">Add to Cart</button>
-    <button name="buy_now" class="btn buy-now" onclick="buyNow(<?php echo $product['id']; ?>, <?php echo $product['seller_id']; ?>)">Buy Now</button>
-</div>
+       <form action="" method="post">
+       <input   value = "<?php echo $product['id'];?>" type="number" name="product_id" id="productId">
+       <button name = "remove_from_cart" type="submit" class="btn btn-danger add-to-cart " onclick="cancel($product['id'])">remove</button>
+       </form>
+       <button class="btn buy-now" onclick="buyNow($product['id'],$product['seller_id'])">Buy Now</button>
+
+    </div>
 </div>
 
 
 <script>
     sold_id = <?php echo $product['sold_id'];?>
-    // function addToCart(product_id,seller_id) {
-        
-    //     var url = 'app/controllers/add_to_cart.php?product_id=' + product_id + '&sold_id=' + sold_id;
-    //     window.location.href = url;
-    // }
+    function cancel(product_id) {
+        if (confirm("Are you sure you want to buy?")) {
+        var url = '/app/controllers/ProductController.php?product_id=' + product_id + '&sold_id=' + sold_id;
+        window.location.href = url;
+    }}
 
     function buyNow(product_id,seller_id) {
-        if (confirm("Are you sure you want to buy?")) {
+       
             alert('Thank you for your purchase!');
            
-        var url = 'app/controllers/buy_product.php?product_id=' + product_id + '&seller_id=' + seller_id+ '&sold_id=' + sold_id;
+        var url = 'buy_now.php?product_id=' + product_id + '&seller_id=' + seller_id+ '&sold_id=' + sold_id;
         window.location.href = url;
         }
      
-    }
+    
 </script>
 

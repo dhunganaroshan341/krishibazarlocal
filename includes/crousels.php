@@ -1,5 +1,5 @@
 <style>
-    p{
+    /* p{
         color:white;
         font-size: large;
         text-align: center;
@@ -10,64 +10,86 @@
     }
     .container-center{
         align-items: center;
-    }
+    } */
+
+    .child-card {
+    background: #6c757d; /* Gray background color */
+    color: white; /* White text color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.child-card:hover {
+    background: #5a6268; /* Darker gray on hover */
+}
+.container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 </style>
-<section id="categories">
-    <h3>categories</h3>
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <?php
-        // Split the products array into chunks of 3 items each
-        $chunks = array_chunk($products, 3);
-        
-        // Loop through each chunk of products
-        foreach ($chunks as $index => $chunk) {
-            // Determine active class for carousel item
-            $activeClass = $index === 0 ? 'active' : '';
-        ?>
-            <div class="carousel-item <?php echo $activeClass; ?>">
-                <div class="row">
-                    <?php
-                    // Loop through products in the current chunk
-                    foreach ($chunk as $product) {
-                    ?>
-                        <div class="col-md-4">
-                            <div class="card mb-4 child-card">
-                                <div class="card-body">
-                                    <h5 class="card-title text-white text-center"><?php echo $product['name']; ?></h5>
-                                    <div class="image">
-                                        <img src="<?php echo $product['image']; ?>" alt="product-image">
-                                    </div>
-                                    <p class="card-text">रू <?php echo $product['price']; ?>/unit</p>
-                                    <p class="card-text">Quantity: <?php echo $product['quantity'] . $product['quantity_unit']; ?></p>
-                                    <p class="card-text">Sold by: <?php echo $product['seller_id']; ?></p>
-                                    <p class="card-text">Bought by: <?php echo $product['sold_id']; ?></p>
-                                    <p class="card-text">Category: <?php echo $product['category']; ?></p>
-                                    <div class="product-buttons container-center">
-                                        <button type="button" class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
-                                        <button type="button" class="btn btn-success" onclick="buyNow()">Buy Now</button>
+<section id="categories" class="mt-4 mb-4">
+    <div class="container">
+        <h3 class="text-center mb-4">Categories</h3>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <?php
+                // Split the products array into chunks of 3 items each
+                $chunks = array_chunk($products, 3);
+
+                // Loop through each chunk of products
+                foreach ($chunks as $index => $chunk) {
+                    // Determine active class for carousel item
+                    $activeClass = $index === 0 ? 'active' : '';
+                ?>
+                    <div class="carousel-item <?php echo $activeClass; ?>">
+                        <div class="row">
+                            <?php
+                            // Loop through products in the current chunk
+                            foreach ($chunk as $product) {
+                            ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-4 child-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center"><?php echo $product['name']; ?></h5>
+                                            <div class="image">
+                                                <img src="<?php echo $product['image']; ?>" alt="product-image" class="img-fluid">
+                                            </div>
+                                            <p class="card-text">रू <?php echo $product['price']; ?>/unit</p>
+                                            <p class="card-text">Quantity: <?php echo $product['quantity'] . $product['quantity_unit']; ?></p>
+                                            <p class="card-text">Sold by: <?php echo $product['seller_id']; ?></p>
+                                            <p class="card-text">Bought by: <?php echo $product['sold_id']; ?></p>
+                                            <p class="card-text">Category: <?php echo $product['category']; ?></p>
+                                            <div class="product-buttons container-center">
+                                                <button type="button" class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
+                                                <button type="button" class="btn btn-success" onclick="buyNow()">Buy Now</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php
+                            }
+                            ?>
                         </div>
-                    <?php
-                    }
-                    ?>
-                </div>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
-        <?php
-        }
-        ?>
-    </div>
 
-    <!-- Navigation buttons -->
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-    </section>
+            <!-- Navigation buttons -->
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</section>
+
